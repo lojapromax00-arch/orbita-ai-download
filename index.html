@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baixar Órbita AI</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #000; color: #f5f5f7; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; }
+  main { width: min(560px, 92vw); padding: 32px 0; text-align: center; }
+  h1 { font-size: 30px; margin: 8px 0 4px; }
+  p { color: rgba(235,235,245,.65); margin: 6px 0; }
+  .btn { display: block; margin: 12px auto; padding: 14px 18px; border-radius: 12px; background: #0a84ff; color: #fff; text-decoration: none; font-weight: 600; }
+  .btn.alt { background: rgba(255,255,255,.1); font-weight: 500; }
+  small { display: block; margin-top: 18px; color: rgba(235,235,245,.5); }
+  .hint { text-align: left; background: #101013; border-radius: 12px; padding: 12px 16px; margin-top: 18px; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Órbita AI</h1>
+  <p id="msg">Escolha o seu sistema:</p>
+  <div id="buttons"></div>
+  <div class="hint" id="hint"></div>
+  <small>Este link sempre baixa a versão mais nova. Quem já tem o app 0.4 ou mais novo se atualiza sozinho, sem precisar baixar de novo.</small>
+</main>
+<script>
+const base = "https://github.com/lojapromax00-arch/orbita-ai-download/releases/latest/download/";
+const files = {
+  win: ["Windows", "Orbita-AI-Windows-Setup.exe"],
+  macArm: ["Mac com chip da Apple (M1, M2, M3…)", "Orbita-AI-Mac-AppleSilicon.dmg"],
+  macIntel: ["Mac com processador Intel", "Orbita-AI-Mac-Intel.dmg"],
+};
+const hints = {
+  win: "Depois de baixar, abra o arquivo. Se o Chrome disser que não é seguro: lista de downloads → três pontinhos → Manter. Se o Windows mostrar a tela azul: Mais informações → Executar assim mesmo (o instalador ainda não é assinado).",
+  mac: "Abra o .dmg e arraste o app para Aplicativos. Na primeira vez: clique com o botão direito no app → Abrir → Abrir. Não sabe qual é o seu Mac? Menu  → Sobre este Mac: se aparecer \"Chip Apple\", use o primeiro botão; se aparecer \"Intel\", use o segundo.",
+};
+const ua = navigator.userAgent;
+const isWin = /Windows/i.test(ua);
+const isMac = /Macintosh|Mac OS X/i.test(ua) && !/iPhone|iPad/i.test(ua);
+const buttons = document.getElementById("buttons");
+const add = (key, alt) => {
+  const a = document.createElement("a");
+  a.className = "btn" + (alt ? " alt" : "");
+  a.href = base + files[key][1];
+  a.textContent = "Baixar para " + files[key][0];
+  buttons.appendChild(a);
+  return a;
+};
+if (isWin) {
+  document.getElementById("msg").textContent = "Detectei o Windows. O download começa em instantes.";
+  add("win");
+  document.getElementById("hint").textContent = hints.win;
+  setTimeout(() => { location.href = base + files.win[1]; }, 800);
+} else if (isMac) {
+  document.getElementById("msg").textContent = "Detectei um Mac. Escolha o seu tipo de chip:";
+  add("macArm");
+  add("macIntel", true);
+  document.getElementById("hint").textContent = hints.mac;
+} else {
+  add("win"); add("macArm", true); add("macIntel", true);
+  document.getElementById("hint").textContent = hints.win;
+}
+</script>
+</body>
+</html>
