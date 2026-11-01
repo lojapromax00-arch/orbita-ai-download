@@ -3,64 +3,238 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Baixar Órbita AI</title>
+<title>Órbita — todas as IAs num app só</title>
+<meta name="description" content="Converse com GPT, Claude, Gemini, DeepSeek e centenas de outros modelos num app só, no Mac e no Windows. Comece grátis.">
+<meta property="og:title" content="Órbita — todas as IAs num app só">
+<meta property="og:description" content="GPT, Claude, Gemini, DeepSeek e centenas de modelos num app bonito para Mac e Windows. Comece grátis.">
+<meta property="og:image" content="https://raw.githubusercontent.com/lojapromax00-arch/orbita-ai-download/main/logo.png">
+<link rel="icon" href="logo.png">
 <style>
-  :root { color-scheme: dark; }
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #000; color: #f5f5f7; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; }
-  main { width: min(560px, 92vw); padding: 32px 0; text-align: center; }
-  h1 { font-size: 30px; margin: 8px 0 4px; }
-  p { color: rgba(235,235,245,.65); margin: 6px 0; }
-  .btn { display: block; margin: 12px auto; padding: 14px 18px; border-radius: 12px; background: #0a84ff; color: #fff; text-decoration: none; font-weight: 600; }
-  .btn.alt { background: rgba(255,255,255,.1); font-weight: 500; }
-  small { display: block; margin-top: 18px; color: rgba(235,235,245,.5); }
-  .hint { text-align: left; background: #101013; border-radius: 12px; padding: 12px 16px; margin-top: 18px; font-size: 14px; }
+:root{--bg:#000;--card:#0f0f12;--card2:#16161a;--line:rgba(255,255,255,.09);--text:#f5f5f7;--muted:rgba(235,235,245,.62);--accent:#0a84ff;--accent2:#5e5ce6;--ok:#30d158}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+nav{position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);background:rgba(0,0,0,.6);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:56px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;text-decoration:none;font-size:17px}
+.brand img{width:28px;height:28px;border-radius:7px}
+nav .links{display:flex;gap:22px;margin-left:auto;font-size:14px}
+nav .links + .nav-cta{margin-left:0}
+nav .links a{text-decoration:none;color:var(--muted)}nav .links a:hover{color:var(--text)}
+.nav-cta{margin-left:auto;padding:7px 14px;border-radius:999px;background:var(--text);color:#000!important;font-weight:600;text-decoration:none;font-size:14px}
+header.hero{position:relative;text-align:center;padding:88px 0 40px;overflow:hidden}
+.glow{position:absolute;inset:-30% -10% auto;height:680px;background:radial-gradient(closest-side,rgba(10,132,255,.32),transparent 70%),radial-gradient(closest-side at 70% 40%,rgba(94,92,230,.25),transparent 70%);filter:blur(10px);pointer-events:none}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 22%,#fff8,transparent),radial-gradient(1px 1px at 78% 18%,#fff6,transparent),radial-gradient(1.5px 1.5px at 40% 70%,#fff5,transparent),radial-gradient(1px 1px at 88% 64%,#fff7,transparent),radial-gradient(1px 1px at 22% 82%,#fff5,transparent),radial-gradient(1px 1px at 60% 35%,#fff4,transparent);pointer-events:none}
+.hero-logo{width:112px;height:112px;border-radius:26px;box-shadow:0 20px 60px rgba(10,132,255,.35);animation:float 6s ease-in-out infinite;position:relative}
+@keyframes float{50%{transform:translateY(-8px)}}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.04;letter-spacing:-.035em;margin:26px 0 14px;font-weight:700;position:relative}
+.grad{background:linear-gradient(90deg,#fff 0%,#9ec9ff 45%,#b9a7ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2vw,21px);color:var(--muted);max-width:640px;margin:0 auto 30px;position:relative}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;position:relative}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:14px;font-weight:600;text-decoration:none;font-size:16px;border:1px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px rgba(10,132,255,.35)}
+.btn.primary:hover{background:#2b95ff}
+.btn.ghost{background:rgba(255,255,255,.07);border-color:var(--line)}
+.btn svg{width:18px;height:18px}
+.others{margin-top:14px;font-size:14px;color:var(--muted);position:relative}
+.others a{color:#9ec9ff;text-decoration:none}.others a:hover{text-decoration:underline}
+.ver{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--muted);position:relative}
+/* prévia do app */
+.shot{margin:56px auto 0;width:min(980px,100%);border-radius:16px;border:1px solid var(--line);background:#0b0b0d;box-shadow:0 40px 120px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.03);overflow:hidden;text-align:left;position:relative}
+.bar{display:flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-bottom:1px solid var(--line);background:#111114}
+.bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.bar span{margin:0 auto;font-size:12.5px;color:var(--muted);transform:translateX(-24px)}
+.app{display:grid;grid-template-columns:220px 1fr;min-height:430px}
+.side{border-right:1px solid var(--line);padding:14px 10px;background:#0e0e11;font-size:13px}
+.side .new{background:#1d1d22;border-radius:9px;padding:8px 10px;margin-bottom:12px}
+.side .lbl{color:#77777e;font-size:11.5px;margin:12px 6px 4px}
+.side .it{padding:6px 8px;border-radius:7px;color:#c7c7cc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side .it.on{background:#1f1f24;color:#fff}
+.main{padding:26px 34px;display:flex;flex-direction:column;gap:14px}
+.u{align-self:flex-end;background:var(--accent);color:#fff;padding:9px 15px;border-radius:18px 18px 4px 18px;max-width:70%;font-size:14px}
+.steps{border-left:2px solid #2a2a2e;padding-left:12px;font-size:13px;color:#a1a1a6;display:flex;flex-direction:column;gap:3px}
+.steps b{color:var(--ok);font-weight:500}
+.ai{font-family:"Iowan Old Style","New York",Georgia,serif;font-size:15.5px;color:#ececee;line-height:1.65;max-width:620px}
+.file{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--card2);border-radius:12px;padding:10px 12px;max-width:420px;font-size:13.5px}
+.file .tag{width:38px;height:44px;border-radius:7px;background:#185abd;display:grid;place-items:center;font-size:10px;font-weight:700}
+.file .open{margin-left:auto;padding:5px 12px;border-radius:8px;background:rgba(255,255,255,.08)}
+.comp{margin-top:auto;border:1px solid rgba(10,132,255,.5);border-radius:16px;padding:12px 14px;background:#0f0f12;font-size:13.5px;color:#77777e;box-shadow:0 0 0 4px rgba(10,132,255,.12)}
+.comp .row{display:flex;gap:8px;margin-top:10px}
+.chip{padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:#c7c7cc;font-size:12px}
+section{padding:96px 0}
+.kicker{color:#9ec9ff;font-weight:600;font-size:14px;letter-spacing:.02em;text-align:center}
+h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.03em;line-height:1.1;text-align:center;margin:10px 0 14px}
+.sub{color:var(--muted);text-align:center;max-width:620px;margin:0 auto 48px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:rgba(10,132,255,.45);transform:translateY(-2px)}
+.ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:rgba(10,132,255,.14);color:#9ec9ff;margin-bottom:14px}
+.ico svg{width:20px;height:20px}
+.card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.01em}.card p{margin:0;color:var(--muted);font-size:15px}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px}
+.logos span{padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;color:#d1d1d6}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;position:relative}
+.step:before{counter-increment:s;content:counter(s);position:absolute;top:20px;right:22px;font-size:42px;font-weight:700;color:rgba(255,255,255,.07)}
+.step h3{margin:0 0 6px;font-size:18px}.step p{margin:0;color:var(--muted);font-size:15px}
+.dl{background:linear-gradient(180deg,#0b1220,#000);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.plat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+.plat.rec{border-color:rgba(10,132,255,.6);box-shadow:0 0 0 4px rgba(10,132,255,.12)}
+.plat h3{margin:6px 0 0;font-size:19px}.plat p{margin:0;color:var(--muted);font-size:14px}
+.plat .btn{margin-top:8px;width:100%;justify-content:center}
+.plat .rectag{font-size:12px;color:#9ec9ff;font-weight:600;min-height:18px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:22px;color:var(--muted);transition:transform .2s}details[open] summary:after{transform:rotate(45deg)}
+details p,details ol{color:var(--muted);margin:12px 0 0;font-size:15px}details ol{padding-left:20px}details li{margin:4px 0}
+.faq{max-width:760px;margin:0 auto}
+footer{padding:40px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+@media (max-width:860px){.grid,.three,.plats{grid-template-columns:1fr}.app{grid-template-columns:1fr}.side{display:none}nav .links{display:none}nav .links + .nav-cta{margin-left:auto}.main{padding:20px}section{padding:72px 0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<main>
-  <h1>Órbita AI</h1>
-  <p id="msg">Escolha o seu sistema:</p>
-  <div id="buttons"></div>
-  <div class="hint" id="hint"></div>
-  <small>Este link sempre baixa a versão mais nova. Quem já tem o app 0.4 ou mais novo se atualiza sozinho, sem precisar baixar de novo.</small>
-</main>
+<nav><div class="wrap">
+  <a class="brand" href="#"><img src="logo.png" alt="">Órbita</a>
+  <div class="links"><a href="#recursos">Recursos</a><a href="#gratis">Começar grátis</a><a href="#baixar">Baixar</a><a href="#ajuda">Ajuda</a></div>
+  <a class="nav-cta" href="#baixar">Baixar</a>
+</div></nav>
+
+<header class="hero">
+  <div class="glow"></div><div class="stars"></div>
+  <div class="wrap">
+    <img class="hero-logo" src="logo.png" alt="Logo do Órbita">
+    <h1>Todas as IAs<br><span class="grad">num app só.</span></h1>
+    <p class="lead">GPT, Claude, Gemini, DeepSeek e centenas de outros modelos num app bonito para Mac e Windows. Conversa, arquivos, voz e muito mais. Comece grátis.</p>
+    <div class="cta">
+      <a class="btn primary" id="main-dl" href="#baixar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span id="main-dl-text">Baixar o Órbita</span></a>
+      <a class="btn ghost" href="#recursos">Ver o que ele faz</a>
+    </div>
+    <div class="others" id="others">Também para <a href="#baixar">Windows e Mac</a> · Grátis para começar</div>
+    <span class="ver" id="ver"></span>
+
+    <div class="shot" role="img" aria-label="Prévia do Órbita: conversa com a IA criando um relatório">
+      <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>Órbita</span></div>
+      <div class="app">
+        <div class="side">
+          <div class="new">＋ Nova conversa</div>
+          <div class="lbl">Projetos</div><div class="it">📁 Loja</div>
+          <div class="lbl">Hoje</div>
+          <div class="it on">Relatório de vendas do mês</div>
+          <div class="it">Ideias para o Instagram</div>
+          <div class="it">Revisar contrato</div>
+          <div class="lbl">Ontem</div>
+          <div class="it">Site de portfólio</div>
+          <div class="it">Planilha de custos</div>
+        </div>
+        <div class="main">
+          <div class="u">Analisa a planilha de vendas e me faz um relatório em Word</div>
+          <div class="steps"><div><b>✓</b> Leu vendas-outubro.xlsx</div><div><b>✓</b> Rodou a análise em Python</div><div><b>✓</b> Criou relatorio-outubro.docx</div></div>
+          <div class="ai">As vendas subiram <strong>18%</strong> em relação a setembro, puxadas pelos fins de semana. O produto mais vendido continua sendo o Kit Inicial. Coloquei no relatório os 3 pontos de atenção e uma sugestão de reposição.</div>
+          <div class="file"><span class="tag">DOCX</span><span>Relatório de Outubro<br><small style="color:#8e8e93">Documento Word</small></span><span class="open">Abrir</span></div>
+          <div class="comp">Pergunte qualquer coisa…<div class="row"><span class="chip">📁 loja</span><span class="chip">⚡ Rápido · grátis</span><span class="chip">🎙 voz</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="recursos">
+  <div class="wrap">
+    <div class="kicker">RECURSOS</div>
+    <h2>Tudo o que você precisa<br>de uma IA, num lugar só.</h2>
+    <p class="sub">Escolha o modelo certo para cada tarefa e troque quando quiser, sem pagar várias assinaturas.</p>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></div><h3>Centenas de modelos</h3><p>GPT, Claude, Gemini, DeepSeek, Llama, Qwen… escolha por “Rápido”, “Equilibrado” ou “Mais inteligente”.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h3>Trabalha nos seus arquivos</h3><p>Abra uma pasta e a IA lê, edita e organiza, com você aprovando cada passo e podendo desfazer.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>Cria Word, Excel, PDF e slides</h3><p>Peça um relatório, uma planilha ou uma apresentação e receba o arquivo pronto para abrir.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h3>Converse por voz</h3><p>Fale em vez de digitar e ouça a resposta. O reconhecimento roda no seu computador.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Pesquisa na web</h3><p>Respostas com fontes e pesquisa a fundo quando você precisa de informação atual.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Privado de verdade</h3><p>Conversas no seu computador, chaves no cofre do sistema e nenhum servidor no meio.</p></div>
+    </div>
+    <div class="logos" aria-label="Alguns modelos que funcionam no Órbita"><span>GPT</span><span>Claude</span><span>Gemini</span><span>DeepSeek</span><span>Llama</span><span>Qwen</span><span>Mistral</span><span>Grok</span><span>+ centenas</span></div>
+  </div>
+</section>
+
+<section id="gratis">
+  <div class="wrap">
+    <div class="kicker">COMEÇAR GRÁTIS</div>
+    <h2>Conversando em 1 minuto.</h2>
+    <p class="sub">Sem cartão de crédito. Os modelos gratuitos do OpenRouter já vêm escolhidos.</p>
+    <div class="three">
+      <div class="step"><h3>Baixe e abra</h3><p>Instale o Órbita no Mac ou no Windows. Na primeira tela, escolha <strong>Começar grátis</strong>.</p></div>
+      <div class="step"><h3>Crie sua chave</h3><p>Entre no OpenRouter com a sua conta do Google e clique em <strong>Create key</strong>. Não pede cartão.</p></div>
+      <div class="step"><h3>Cole e converse</h3><p>Cole a chave no Órbita e pronto: um modelo gratuito já fica escolhido para você.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="baixar" class="dl">
+  <div class="wrap">
+    <div class="kicker">BAIXAR</div>
+    <h2>Escolha o seu computador.</h2>
+    <p class="sub">Sempre a versão mais nova. Depois de instalado, o Órbita se atualiza sozinho.</p>
+    <div class="plats">
+      <div class="plat" id="p-win"><span class="rectag"></span><svg width="34" height="34" viewBox="0 0 24 24" fill="#9ec9ff"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><h3>Windows</h3><p>Windows 10 e 11 (64 bits)</p><a class="btn primary" href="https://github.com/lojapromax00-arch/orbita-ai-download/releases/latest/download/Orbita-AI-Windows-Setup.exe">Baixar para Windows</a></div>
+      <div class="plat" id="p-arm"><span class="rectag"></span><svg width="34" height="34" viewBox="0 0 24 24" fill="#f5f5f7"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.7 9.6c-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.9-4.3zM14 5.3c.7-.9 1.2-2 1-3.2-1 .1-2.2.7-2.9 1.6-.6.7-1.2 1.9-1 3.1 1.1.1 2.2-.6 2.9-1.5z"/></svg><h3>Mac com chip Apple</h3><p>M1, M2, M3, M4 e mais novos</p><a class="btn ghost" href="https://github.com/lojapromax00-arch/orbita-ai-download/releases/latest/download/Orbita-AI-Mac-AppleSilicon.dmg">Baixar para Mac (Apple)</a></div>
+      <div class="plat" id="p-intel"><span class="rectag"></span><svg width="34" height="34" viewBox="0 0 24 24" fill="#f5f5f7"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.7 9.6c-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.9-4.3zM14 5.3c.7-.9 1.2-2 1-3.2-1 .1-2.2.7-2.9 1.6-.6.7-1.2 1.9-1 3.1 1.1.1 2.2-.6 2.9-1.5z"/></svg><h3>Mac com Intel</h3><p>Macs anteriores a 2021</p><a class="btn ghost" href="https://github.com/lojapromax00-arch/orbita-ai-download/releases/latest/download/Orbita-AI-Mac-Intel.dmg">Baixar para Mac (Intel)</a></div>
+    </div>
+    <p class="sub" style="margin:22px auto 0;font-size:14px">Não sabe qual é o seu Mac? Menu  → Sobre Este Mac: “Chip Apple” = Apple; “Intel” = Intel.</p>
+  </div>
+</section>
+
+<section id="ajuda">
+  <div class="wrap faq">
+    <div class="kicker">AJUDA</div>
+    <h2>Perguntas frequentes</h2>
+    <p class="sub"></p>
+    <details><summary>O Windows mostrou “O Windows protegeu o computador”</summary><p>Isso aparece com todo app que não pagou o certificado da Microsoft; não é vírus. Clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>. Se o Chrome disser que o arquivo não é seguro: lista de downloads → três pontinhos → <strong>Manter</strong>.</p></details>
+    <details><summary>O Mac diz que não pode abrir o app</summary><ol><li>Abra o .dmg e arraste o Órbita para <strong>Aplicativos</strong>.</li><li>Na primeira vez, clique no app com o <strong>botão direito</strong> → <strong>Abrir</strong> → <strong>Abrir</strong>.</li><li>Se ainda assim não abrir: <strong>Ajustes do Sistema → Privacidade e Segurança</strong>, role até o fim e clique em <strong>Abrir Mesmo Assim</strong>.</li></ol></details>
+    <details><summary>É grátis mesmo?</summary><p>O Órbita é grátis. Você usa a sua própria chave de IA: com o OpenRouter dá para começar com modelos gratuitos (com um limite por dia). Se quiser mais, ou modelos como GPT e Claude, você coloca créditos e paga só o que usar, sem assinatura.</p></details>
+    <details><summary>Minhas conversas ficam onde?</summary><p>No seu computador. O Órbita não tem servidor próprio: suas mensagens vão direto do seu computador para o provedor de IA que você escolher, e as chaves ficam no cofre do sistema (Keychain no Mac, Gerenciador de Credenciais no Windows).</p></details>
+    <details><summary>Como atualizo?</summary><p>Sozinho: quando sai uma versão nova, o Órbita baixa e instala ao abrir, conferindo a assinatura antes.</p></details>
+    <details><summary>Achei um problema ou tenho uma ideia</summary><p>No app, clique no balão no rodapé da barra lateral → <strong>Sugerir ou relatar problema</strong>.</p></details>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© Órbita</span><span><a href="https://github.com/lojapromax00-arch/orbita-ai-download/releases">Todas as versões</a></span></div></footer>
+
 <script>
-const base = "https://github.com/lojapromax00-arch/orbita-ai-download/releases/latest/download/";
-const files = {
-  win: ["Windows", "Orbita-AI-Windows-Setup.exe"],
-  macArm: ["Mac com chip da Apple (M1, M2, M3…)", "Orbita-AI-Mac-AppleSilicon.dmg"],
-  macIntel: ["Mac com processador Intel", "Orbita-AI-Mac-Intel.dmg"],
-};
-const hints = {
-  win: "Depois de baixar, abra o arquivo. Se o Chrome disser que não é seguro: lista de downloads → três pontinhos → Manter. Se o Windows mostrar a tela azul: Mais informações → Executar assim mesmo (o instalador ainda não é assinado).",
-  mac: "Abra o .dmg e arraste o app para Aplicativos. Na primeira vez: clique com o botão direito no app → Abrir → Abrir. Não sabe qual é o seu Mac? Menu  → Sobre este Mac: se aparecer \"Chip Apple\", use o primeiro botão; se aparecer \"Intel\", use o segundo.",
-};
-const ua = navigator.userAgent;
-const isWin = /Windows/i.test(ua);
-const isMac = /Macintosh|Mac OS X/i.test(ua) && !/iPhone|iPad/i.test(ua);
-const buttons = document.getElementById("buttons");
-const add = (key, alt) => {
-  const a = document.createElement("a");
-  a.className = "btn" + (alt ? " alt" : "");
-  a.href = base + files[key][1];
-  a.textContent = "Baixar para " + files[key][0];
-  buttons.appendChild(a);
-  return a;
-};
-if (isWin) {
-  document.getElementById("msg").textContent = "Detectei o Windows. O download começa em instantes.";
-  add("win");
-  document.getElementById("hint").textContent = hints.win;
-  setTimeout(() => { location.href = base + files.win[1]; }, 800);
-} else if (isMac) {
-  document.getElementById("msg").textContent = "Detectei um Mac. Escolha o seu tipo de chip:";
-  add("macArm");
-  add("macIntel", true);
-  document.getElementById("hint").textContent = hints.mac;
-} else {
-  add("win"); add("macArm", true); add("macIntel", true);
-  document.getElementById("hint").textContent = hints.win;
-}
+(() => {
+  const B = 'https://github.com/lojapromax00-arch/orbita-ai-download/releases/latest/download/'
+  const ua = navigator.userAgent
+  const isWin = /Windows/i.test(ua)
+  const isMac = /Macintosh|Mac OS X/i.test(ua) && !/iPhone|iPad/i.test(ua) && !('ontouchend' in document && navigator.maxTouchPoints > 1)
+  // Chip Apple ou Intel: a placa de vídeo diz ("Apple M1", "Apple GPU" = chip Apple; "Intel"/"AMD" = Intel).
+  let arm = null
+  if (isMac) {
+    try {
+      const gl = document.createElement('canvas').getContext('webgl')
+      const ext = gl && gl.getExtension('WEBGL_debug_renderer_info')
+      const r = ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : ''
+      if (/Apple (M\d|GPU)/i.test(r)) arm = true
+      else if (/Intel|AMD|Radeon/i.test(r)) arm = false
+    } catch (e) { /* sem WebGL: pergunta pelos botões */ }
+  }
+  const main = document.getElementById('main-dl'), text = document.getElementById('main-dl-text')
+  const mark = (id) => { const el = document.getElementById(id); el.classList.add('rec'); el.querySelector('.rectag').textContent = 'Recomendado para você'; const b = el.querySelector('.btn'); b.classList.remove('ghost'); b.classList.add('primary') }
+  const unmark = (id) => { const b = document.getElementById(id).querySelector('.btn'); b.classList.remove('primary'); b.classList.add('ghost') }
+  if (isWin) { main.href = B + 'Orbita-AI-Windows-Setup.exe'; text.textContent = 'Baixar para Windows'; mark('p-win') }
+  else if (isMac && arm !== null) { unmark('p-win'); const id = arm ? 'p-arm' : 'p-intel'; main.href = B + (arm ? 'Orbita-AI-Mac-AppleSilicon.dmg' : 'Orbita-AI-Mac-Intel.dmg'); text.textContent = 'Baixar para Mac'; mark(id) }
+  else if (isMac) { unmark('p-win'); text.textContent = 'Baixar para Mac'; main.href = '#baixar' }
+  // Links antigos com ?baixar: começa o download direto (como a página de antes fazia no Windows).
+  if (/[?&]baixar\b/.test(location.search) && main.href.startsWith('http')) setTimeout(() => { location.href = main.href }, 600)
+  // Versão mais nova (a API do GitHub permite ler daqui).
+  fetch('https://api.github.com/repos/lojapromax00-arch/orbita-ai-download/releases/latest')
+    .then((r) => r.ok ? r.json() : null)
+    .then((d) => { if (d && d.tag_name) document.getElementById('ver').textContent = 'Versão ' + d.tag_name.replace(/^v/, '') + ' · Mac e Windows' })
+    .catch(() => {})
+})()
 </script>
 </body>
 </html>
